@@ -1,0 +1,21 @@
+@startuml
+
+left to right direction
+
+actor "Администратор" as act
+
+package "Вебклиент" {
+  usecase UC1 as "Назначить ответсвенных"
+  usecase UC2 as "Посмотреть список ответсвенных"
+  usecase UC3 as "Отредактировать список ответсвенных"
+  usecase UC4 as "Получить уведомление об 
+успешном назначении пробы"
+}
+
+act ---> UC1
+act ---> UC2
+act ---> UC3
+act ---> UC4
+
+
+@enduml

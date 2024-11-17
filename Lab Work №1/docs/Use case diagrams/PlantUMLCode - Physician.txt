@@ -1,0 +1,24 @@
+@startuml
+
+left to right direction
+
+actor "Врач" as doctor
+package Вебклиент {
+  usecase UC2 as "Получить уведомление о назначении пробы"
+  usecase UC3 as "Валидировать данные пробы"
+  usecase UC4 as "Посмотреть данные пробы"
+  usecase UC5 as "Провести анализ"
+  usecase UC6 as "Перевести в статус завершения"
+  usecase UC7 as "Сформировать отчет"
+  usecase UC8 as "Назначить ответственного \nАдминистратора"
+}
+
+doctor -- UC2
+doctor -- UC3
+UC3 ..> UC4: включает
+UC3 ..> UC5: включает
+UC3 ..> UC6: включает
+UC3 <.. UC7: расширяет
+UC3 <.. UC8: расширяет
+
+@enduml

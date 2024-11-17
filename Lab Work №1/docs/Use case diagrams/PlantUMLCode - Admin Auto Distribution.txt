@@ -1,0 +1,26 @@
+@startuml
+
+left to right direction
+
+actor "Администратор" as act
+
+package "Вебклиент" {
+  usecase UC1 as "Создать правила назначения"
+  usecase UC2 as "Отредактировать правила назначения"
+  usecase UC3 as "Удалить правила назначения"
+  usecase UC4 as "Отредактировать активность правила"
+  usecase UC6 as "Отредактировать приоритет правила"
+  usecase UC7 as "Получить уведомление о 
+назначении пробы по правлам"
+}
+
+act ---> UC1
+act ---> UC2
+act ---> UC3
+act ---> UC7
+
+UC2 <.. UC4: расширяет
+UC2 <.. UC6: расширяет
+
+
+@enduml
