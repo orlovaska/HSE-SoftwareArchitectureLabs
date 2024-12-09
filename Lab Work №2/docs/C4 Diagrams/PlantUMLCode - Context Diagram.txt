@@ -1,0 +1,22 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
+
+AddElementTag("microService", $shape=EightSidedShape(), $bgColor="CornflowerBlue", $fontColor="white", $legendText="micro service\neight sided")
+AddElementTag("storage", $shape=RoundedBoxShape(), $bgColor="lightSkyBlue", $fontColor="white")
+
+SHOW_PERSON_OUTLINE()
+
+Person(administrator, Администратор, "Управляет правилами назначения и распределением проб")
+Person(doctor, Врач, "Получает назначения на пробы и валидирует их данные")
+Container(c1, "Система анализа микроскопических исследований", "Система")
+Container_Ext(link, "Сторонняя система сканирования образцов", "Система", "Сторонняя система, позволяющая сканировать и отправлять цитологические образцы")
+Rel_D(administrator, c1, "Настраивает правила назначения проб, назначает ответственных за анализ")
+Rel_D(c1, link, "Создает ссылку на результаты проб")
+Rel_D(link, c1, "Передает данные отсканированного образца")
+Rel_D(administrator, doctor, "Передает назначение ответственного")
+Rel_D(doctor, c1, "Получает назначение на пробы, открывает ссылку на результаты, валидирует данные")
+
+SHOW_LEGEND()
+@enduml

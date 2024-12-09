@@ -1,0 +1,32 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
+
+AddElementTag("microService", $shape=EightSidedShape(), $bgColor="CornflowerBlue", $fontColor="white", $legendText="micro service\neight sided")
+AddElementTag("storage", $shape=RoundedBoxShape(), $bgColor="lightSkyBlue", $fontColor="white")
+
+SHOW_PERSON_OUTLINE()
+
+Person(administrator, Администратор, "Управляет правилами назначения и распределением проб")
+Person(doctor, Врач, "Получает назначения на пробы и валидирует их данные")
+System_Boundary(c1, "Система анализа микроскопических исследований") {
+    Container(clientAdministrator, "Клиент администратора", "TypeScript, React", "Позволяет управлять правилами назначения проб и назначать ответственных")
+    Container(clientDoctor, "Клиент врача", "TypeScript, React", "Позволяет получать назначения на пробы и валидировать результаты")
+    Container(server, "Сервер", "C#, .NET", "Ответственен за обработку и передачу данных")
+    ContainerDb(db, "База данных", "PostgreSQL", "Хранит данные по пробам и результаты анализов", $sprite="msql_server")
+}
+Container_Ext(link, "Сторонняя система сканирования образцов", "System", "Сторонняя система для сканирования и передачи данных образцов")
+Rel_D(administrator, clientAdministrator, "Настраивает правила назначения проб, назначает ответственных за анализ")
+Rel_D(clientAdministrator, server, "Отправляет созданные правила назначения и распределение проб")
+Rel_D(server, db, "Сохраняет информацию о правилах назначения и данные по пробам")
+Rel_U(db, server, "Извлекает данные по пробам и правилам назначения")
+Rel_D(server, link, "Создает ссылку на результаты проб")
+Rel_D(link, server, "Передает результаты отсканированных образцов")
+Rel_D(server, clientDoctor, "Отправляет назначения и ссылку на пробу")
+Rel_D(doctor, clientDoctor, "Получает назначение на пробы и проверяет результаты")
+Rel_D(clientDoctor, server, "Отправляет запрос на результаты проб")
+Rel_D(server, clientDoctor, "Отправляет результаты проб для проверки")
+
+SHOW_LEGEND()
+@enduml
