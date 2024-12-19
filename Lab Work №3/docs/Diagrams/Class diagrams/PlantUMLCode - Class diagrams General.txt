@@ -1,0 +1,118 @@
+@startuml
+
+class Repository {
+  +Id: int
+  -Name: string
+  -DefaultUserDiskSpace: int
+  -Label: string
+}
+
+class User {
+  +Id: int
+  -Login: string
+  -Name: string
+  -DiskSpace: int
+  -DiskSpaceExpitation: int
+  -CanChangedPassword: boolean
+}
+
+class Patient {
+  +Id: int
+  -FirstName: string
+  -Middlename: string
+  -PolicyNumber: string
+  -Email: string
+  -Birthdate: string
+  -Phone: string
+  -Gender: boolean
+}
+
+class Sample_Folder {
+  +Id: int
+  -OwnerId: int
+  -Size: int
+  -UploadTime: int
+}
+
+class Sample {
+  +Id: int
+  -SampleType: string
+  -PrewiewUrl: string
+  -BarcodeUrl: string
+  -Workstation: string
+  -PathologyFlag: boolean
+  -Haslmages: boolean
+}
+
+class Folder {
+  +Id: int
+  -Name: string
+  -IsArchiveFolder: boolean
+  -CanBeArchived: boolean
+}
+
+class Sample_Responsible {
+  +Id: int
+  -SampleId: int
+  -UserAssignedId: int
+  -ResponsibleId: int
+  -AssignedAt: data
+  -IsCurrentResponsible: boolean
+}
+
+class Session {
+  +Id: int
+  -Token: string
+  -StartDate: string
+  -EndDate: string
+}
+
+class Role {
+  +Id: int
+  -RoleName: string
+  -Description: string
+}
+
+class Privilege {
+  +Id: int
+  -PrivilegeName: string
+}
+
+class RolePrivilege {
+  +Id: int
+  -RoleId: int
+  -PrivilegeId: int
+}
+
+class Country {
+  +Id: int
+  -NameEn: string
+  -NameRu: string
+  -IsInEU: boolean
+  -Tax: int
+}
+
+class UserRole {
+  +Id: int
+  -UserId: int
+  -RoleId: int
+}
+
+' Связи
+Sample_Folder <|-- Sample: Inherits
+Sample_Folder <|-- Folder: Inherits
+
+Repository "1" -- "0..*" User: Has
+Repository "1" -- "0..*" Patient: Has
+Patient "1" -- "0..*" Sample: Has
+Sample "1" -- "0..*" Sample_Responsible: Has
+User "1" -- "0..*" Sample_Responsible: Has
+User "1" -- "0..*" Sample_Folder: Has
+User "1" -- "0..*" Session: Has
+RolePrivilege "0..*" -up- "1" Role: Has
+RolePrivilege "0..*" -- "1" Privilege: Has
+User "1" -- "0..*" Country: LivesIn
+UserRole "0..*" -up- "0..*" User: Has
+UserRole "0..*" -- "1" Role: Has
+
+@enduml
