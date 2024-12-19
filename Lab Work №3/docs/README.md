@@ -149,6 +149,11 @@ link -[hidden]-> s
 SHOW_LEGEND()
 @enduml
 ```
+# Диаграммы последовательности
+## Диаграмма последовательности Общая
+![image](https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork3/Lab%20Work%20%E2%84%963/docs/Diagrams/Sequence%20diagrams/Sequence%20diagram%20General.png?raw=true)
+## Диаграмма последовательности Декомпозиция Выбор ответственных по пробе
+![image](https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork3/Lab%20Work%20%E2%84%963/docs/Diagrams/Sequence%20diagrams/Sequence%20diagram%20Dec%20Admin%20Assigment.png?raw=true)
 
 # Модель базы данных
 
