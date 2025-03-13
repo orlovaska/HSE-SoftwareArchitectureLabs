@@ -16,7 +16,7 @@
 
 
 **UML:**  
-<img width="1255" alt="image" src="тут картинка FactoryMet">  
+<img width="1255" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/FactoryMethod.png?raw=true">  
 
 **Код:**
 ```C#
@@ -99,7 +99,7 @@ class Program
 
 
 **UML:**  
-<img width="1380" alt="image" src="тут картинка AbstractFactory">  
+<img width="1380" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/AbstractFactory.png?raw=true">  
 
 ```PlantUML
 @startuml
@@ -286,7 +286,7 @@ class Program
 
 
 **UML:**  
-<img width="1183" alt="image" src="тут картинка Singleton">  
+<img width="1183" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/Singleton.png?raw=true">  
 ```PlantUML
 @startuml
 class FixtureSingleton<TFixture> {
@@ -342,7 +342,7 @@ internal class FixtureSingleton<TFixture>
 Создаём класс адаптера (тут их два), где он реализует нужный метод через обработку несовместимых интерфейсов.
 
 **UML:**  
-<img width="642" alt="image" src="тут картинка Adapter">
+<img width="642" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/Adapter.png?raw=true">
 ```PlantUML
 @startuml
 
@@ -440,7 +440,7 @@ emailAdapter.SendNotification("D123", "A new test has been assigned to you.");
 Класс содержит объект интерфейса, но его можно подменить при использовании объекта класса.
 
 **UML:**  
-<img width="642" alt="image" src="тут картинка Bridge">
+<img width="642" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/Bridge.png?raw=true">
 ```PlantUML
 @startuml
 interface INotificationSender {
@@ -534,7 +534,7 @@ emailAdapter.SendNotification("D123", "A new test has been assigned to you.");
 Создаём набор классов-декораторов, которые оборачивают базовый объект, добавляя ему новые возможности. Каждый декоратор реализует тот же интерфейс, что и базовый объект, что позволяет им быть взаимозаменяемыми.
 
 **UML:**  
-<img width="876" alt="image" src="тут картинка Decorator">
+<img width="876" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/Decorator.png?raw=true">
 ```PlantUML
 @startuml
 
@@ -656,7 +656,7 @@ notificationWithPriorityAndLogging.SendNotification("D123", "A new test has been
 
 
 **UML:**  
-<img width="539" alt="image" src="тут картинка Composite">
+<img width="539" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/Composite.png?raw=true">
 ```PlantUML
 @startuml
 
@@ -758,7 +758,7 @@ public class Program
 Клиент выполняет одно действие, но с разными классами одного интерфейса
 
 **UML:**  
-<img width="1206" alt="image" src="тут картинка Strategy">
+<img width="1206" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/Strategy.png?raw=true">
 ```PlantUML
 @startuml
 
@@ -887,7 +887,7 @@ class Program
 2. Когда вызывается метод уведомления, у всех наблюдателей вызывается метод `updateNotification`, чтобы оповестить их об изменении.
 
 **UML:**  
-<img width="770" alt="image" src="тут картинка Observer">
+<img width="770" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/Observer.png?raw=true">
 ```PlantUML
 @startuml
 class AssignmentObserver {
@@ -1000,7 +1000,7 @@ public class Program
 Объект делегирует выполнение своих операций текущему объекту-состоянию.
 
 **UML:**  
-<img width="770" alt="image" src="тут картинка State">
+<img width="770" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/State.png?raw=true">
 ```PlantUML
 @startuml
 
@@ -1095,7 +1095,7 @@ export default AssignmentComponent;
 Создаём класс-метод, будет выполнять одну операцию - реализация интерфейса.
 
 **UML:**  
-<img width="791" alt="image" src="тут картинка Command">
+<img width="791" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/Command.png?raw=true">
 ```PlantUML
 @startuml
 
@@ -1226,7 +1226,7 @@ public class Program
 
 
 **UML:**  
-<img width="791" alt="image" src="тут картинка TemplateMethod">
+<img width="791" alt="image" src="https://github.com/orlovaska/HSE-SoftwareArchitectureLabs/blob/LabWork6/LabWork%20%E2%84%966/docs/Diagrams/TemplateMethod.png?raw=true">
 ```PlantUML
 @startuml
 
