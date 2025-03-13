@@ -1,0 +1,25 @@
+@startuml
+
+interface AssignmentStrategy {
+    + assign(): void
+}
+
+class ManualAssignmentStrategy {
+    + assign(): void
+}
+
+class RuleBasedAssignmentStrategy {
+    + assign(): void
+}
+
+class Assigner {
+    - assignmentStrategy: AssignmentStrategy
+    + setAssignmentStrategy(strategy: AssignmentStrategy): void
+    + assign(): void
+}
+
+Assigner --|> AssignmentStrategy
+Assigner *-down-> ManualAssignmentStrategy: strategy
+Assigner *-down-> RuleBasedAssignmentStrategy: strategy
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+
+abstract class RepositoryTemplate {
+    +performOperations()
+    #assignResponsible()
+    #viewSamples()
+    #approveSample()
+}
+
+class RootRepository {
+    +assignResponsible()
+    +viewSamples()
+    +approveSample()
+}
+
+class RegularRepository {
+    +assignResponsible()
+    +viewSamples()
+    +approveSample()
+}
+
+RepositoryTemplate <|-- RootRepository
+RepositoryTemplate <|-- RegularRepository
+
+RootRepository --> RepositoryTemplate
+RegularRepository --> RepositoryTemplate
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+
+abstract class User {
+  + assignTask(task: string): void
+}
+
+class Responsible {
+  + assignTask(task: string): void
+}
+
+class UserGroup {
+  - users: List<User>
+  + addUser(user: User): void
+  + assignTask(task: string): void
+}
+
+User <|-- Responsible
+User <|-- UserGroup
+
+@enduml

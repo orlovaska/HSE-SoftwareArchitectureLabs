@@ -1,0 +1,52 @@
+@startuml
+
+interface BloodTest {
+  +Run(): void
+}
+
+interface BiopsyTest {
+  +Run(): void
+}
+
+class BasicBloodTest implements BloodTest {
+  +Run(): void
+}
+
+class AdvancedBloodTest implements BloodTest {
+  +Run(): void
+}
+
+class BasicBiopsyTest implements BiopsyTest {
+  +Run(): void
+}
+
+class AdvancedBiopsyTest implements BiopsyTest {
+  +Run(): void
+}
+
+interface LabTestFactory {
+  +CreateBloodTest(): BloodTest
+  +CreateBiopsyTest(): BiopsyTest
+}
+
+class BasicLabTestFactory implements LabTestFactory {
+  +CreateBloodTest(): BasicBloodTest
+  +CreateBiopsyTest(): BasicBiopsyTest
+}
+
+class AdvancedLabTestFactory implements LabTestFactory {
+  +CreateBloodTest(): AdvancedBloodTest
+  +CreateBiopsyTest(): AdvancedBiopsyTest
+}
+
+class Lab {
+  - bloodTest: BloodTest
+  - biopsyTest: BiopsyTest
+  + PerformTests(): void
+}
+
+Lab --> LabTestFactory
+Lab --> BloodTest
+Lab --> BiopsyTest
+
+@enduml

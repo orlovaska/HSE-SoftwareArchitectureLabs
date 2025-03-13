@@ -1,0 +1,26 @@
+@startuml
+
+class AssignmentState {
+  {abstract} +render(task: string, assignees: List<string>): string
+}
+
+class SingleAssignmentState {
+  +render(task: string, assignees: List<string>): string
+}
+
+class MultipleAssignmentState {
+  +render(task: string, assignees: List<string>): string
+}
+
+class AssignmentStateContext {
+  -state: AssignmentState
+  +init(initialState: AssignmentState)
+  +setState(newState: AssignmentState)
+  +requestState(task: string, assignees: List<string>): string
+}
+
+AssignmentState <|-- SingleAssignmentState
+AssignmentState <|-- MultipleAssignmentState
+AssignmentStateContext *-- AssignmentState
+
+@enduml

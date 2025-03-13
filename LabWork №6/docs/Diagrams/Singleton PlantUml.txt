@@ -1,0 +1,11 @@
+@startuml
+class FixtureSingleton<TFixture> {
+  - _Instance: TFixture
+  - theLock: object
+  - constructor(): void
+  + Instance: TFixture
+}
+
+FixtureSingleton --> FixtureSingleton : _Instance
+FixtureSingleton --> FixtureSingleton : theLock
+@enduml

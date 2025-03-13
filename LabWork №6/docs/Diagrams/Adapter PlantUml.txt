@@ -1,0 +1,25 @@
+@startuml
+
+interface IDoctorNotificationSender {
+    + SendNotification(doctorId: string, message: string)
+}
+
+class EmailDoctorNotificationService {
+    + SendEmail(doctorId: string, message: string)
+}
+
+class VisionAccountAdapter {
+    - emailService: EmailDoctorNotificationService
+    + VisionAccountAdapter(emailService: EmailDoctorNotificationService)
+    + SendNotification(doctorId: string, message: string)
+}
+
+class EmailDoctorNotificationAdapter {
+    - emailService: EmailDoctorNotificationService
+    + EmailDoctorNotificationAdapter(emailService: EmailDoctorNotificationService)
+    + SendNotification(doctorId: string, message: string)
+}
+
+IDoctorNotificationSender <|-- VisionAccountAdapter
+IDoctorNotificationSender <|-- EmailDoctorNotificationAdapter
+EmailDoctorNotificationService <-- EmailDoctorNotificationAdapter

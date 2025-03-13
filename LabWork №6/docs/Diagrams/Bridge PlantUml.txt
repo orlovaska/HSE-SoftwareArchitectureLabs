@@ -1,0 +1,22 @@
+@startuml
+interface INotificationSender {
+  + sendNotification(doctorId: string, message: string): void
+}
+
+class EmailSender implements INotificationSender {
+  + sendNotification(doctorId: string, message: string): void
+}
+
+class VisionSender implements INotificationSender {
+  + sendNotification(doctorId: string, message: string): void
+}
+
+class DoctorNotification {
+  - sender: INotificationSender
+  + constructor(sender: INotificationSender)
+  + sendNotification(doctorId: string, message: string): void
+}
+
+DoctorNotification *-- INotificationSender
+
+@enduml

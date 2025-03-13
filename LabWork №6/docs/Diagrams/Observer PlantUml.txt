@@ -1,0 +1,14 @@
+@startuml
+class AssignmentObserver {
+    + updateNotification(task: string, newAssignee: string): void
+}
+
+class AssignmentSubject {
+    - observers: List<AssignmentObserver>
+    + addObserver(observer: AssignmentObserver): void
+    + removeObserver(observer: AssignmentObserver): void
+    + notifyObservers(task: string, newAssignee: string): void
+}
+
+AssignmentObserver --|> AssignmentSubject
+@enduml
