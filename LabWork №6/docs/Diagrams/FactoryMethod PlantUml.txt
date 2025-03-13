@@ -1,0 +1,36 @@
+@startuml
+
+interface Sample {
+  +Analyze(): void
+}
+
+class CytologySample implements Sample {
+  +Analyze(): void
+}
+
+class HistologySample implements Sample {
+  +Analyze(): void
+}
+
+interface SampleFactory {
+  +CreateSample(): Sample
+}
+
+class CytologySampleFactory implements SampleFactory {
+  +CreateSample(): Sample
+}
+
+class HistologySampleFactory implements SampleFactory {
+  +CreateSample(): Sample
+}
+
+Sample <|.. CytologySample
+Sample <|.. HistologySample
+
+SampleFactory <|.. CytologySampleFactory
+SampleFactory <|.. HistologySampleFactory
+
+CytologySampleFactory --> CytologySample : "creates"
+HistologySampleFactory --> HistologySample : "creates"
+
+@enduml

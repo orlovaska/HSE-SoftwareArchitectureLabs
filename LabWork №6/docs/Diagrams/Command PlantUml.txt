@@ -1,0 +1,31 @@
+@startuml
+
+class Sample {
+    + assignResponsible()
+    + setPathologyFlag()
+}
+
+interface SampleCommand {
+    + execute()
+}
+
+class AssignResponsibleCommand {
+    - sample: Sample
+    + AssignResponsibleCommand(sample: Sample)
+    + execute()
+}
+
+class SetPathologyFlagCommand {
+    - sample: Sample
+    + SetPathologyFlagCommand(sample: Sample)
+    + execute()
+}
+
+SampleCommand <|.. AssignResponsibleCommand
+SampleCommand <|.. SetPathologyFlagCommand
+
+Sample --> SampleCommand
+AssignResponsibleCommand --> Sample
+SetPathologyFlagCommand --> Sample
+
+@enduml

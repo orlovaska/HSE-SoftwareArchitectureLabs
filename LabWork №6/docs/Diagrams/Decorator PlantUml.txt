@@ -1,0 +1,29 @@
+@startuml
+
+interface IDoctorNotificationSender {
+  + sendNotification(doctorId: string, message: string): void
+}
+
+class VisionSender {
+  + sendNotification(doctorId: string, message: string): void
+}
+
+class NotificationDecorator {
+  - decoratedSender: IDoctorNotificationSender
+  + sendNotification(doctorId: string, message: string): void
+}
+
+class LoggingDecorator {
+  + sendNotification(doctorId: string, message: string): void
+}
+
+class PriorityDecorator {
+  + sendNotification(doctorId: string, message: string): void
+}
+
+IDoctorNotificationSender <|-- VisionSender
+NotificationDecorator <|-- LoggingDecorator
+NotificationDecorator <|-- PriorityDecorator
+VisionSender --|> NotificationDecorator
+
+@enduml
